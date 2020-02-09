@@ -1,0 +1,13 @@
+#  before_command = UPDATE `x_user_summary` SET `fund_last_withdraw_time` = NOW() WHERE `x_user_summary`.`x_username` = 'u008';
+// after_command  = UPDATE `x_user_summary` SET `fund_withdraw_count` = '8848' WHERE `x_user_summary`.`x_username` = 'u008';
+x_username	!fund_first_withdraw_time:DATETIME	fund_last_withdraw_time:DATETIME	!fund_withdraw_count:INT(10)	fund_withdraw_amount:DECIMAL(15,2)
+u001	2017-04-07 14:18:34	2017-12-01 09:14:15	10	201494.57
+u002	2015-06-09 11:04:18	2016-04-27 16:18:15	6	61540.24
+u003	2016-01-25 15:34:46	2016-01-25 15:34:46	1	6010.70
+u004	2015-08-05 10:55:23	2017-05-04 15:57:10	4	7140.65
+u005	2015-09-05 00:55:37	2017-09-16 19:53:53	2	12162.82
+u006	2015-11-14 12:31:31	2015-11-26 08:27:03	2	385.26
+u007	2016-07-01 13:14:44	2016-07-25 12:38:17	2	16202.57
+u008	2017-02-21 08:49:54	2017-02-21 08:49:54	1	61261.60
+u009	2015-05-14 09:15:30	2016-09-11 08:20:09	22	856837.80
+u010	2017-02-15 23:54:20	2017-04-18 08:05:44	3	6712.82
