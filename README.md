@@ -48,9 +48,9 @@ test#x_user_summary#20171214#1#0#fund_withdraw.txt
 - 内容
 
 ```
-#  before_command = UPDATE `tzj_user_summary` SET `fund_last_withdraw_time` = NOW() WHERE `tzj_user_summary`.`tzj_username` = 'u008';
-// after_command  = UPDATE `tzj_user_summary` SET `fund_withdraw_count` = '8848' WHERE `tzj_user_summary`.`tzj_username` = 'u008';
-tzj_username	fund_first_withdraw_time:DATETIME	!fund_last_withdraw_time:DATETIME	fund_withdraw_count:INT(10)	fund_withdraw_amount:DECIMAL(15,2)
+#  before_command = UPDATE `x_user_summary` SET `fund_last_withdraw_time` = NOW() WHERE `x_user_summary`.`x_username` = 'u008';
+// after_command  = UPDATE `x_user_summary` SET `fund_withdraw_count` = '8848' WHERE `x_user_summary`.`x_username` = 'u008';
+x_username	fund_first_withdraw_time:DATETIME	!fund_last_withdraw_time:DATETIME	fund_withdraw_count:INT(10)	fund_withdraw_amount:DECIMAL(15,2)
 u001	2017-04-07 14:18:34	2017-12-01 09:14:15	10	201494.57
 u002	2015-06-09 11:04:18	2016-04-27 16:18:15	6	61540.24
 u003	2016-01-25 15:34:46	2016-01-25 15:34:46	1	6010.70
