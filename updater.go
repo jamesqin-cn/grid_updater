@@ -188,7 +188,7 @@ func (h *Updater) UpdateRecords() (err error) {
 	for {
 		row, _ := h.basefile.NextRow()
 		if row == nil {
-			break
+			continue
 		}
 
 		h.updateRecord(row)
