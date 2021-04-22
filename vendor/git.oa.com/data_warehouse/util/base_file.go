@@ -282,10 +282,12 @@ func (h *BaseFile) NextRow() (row map[string]string, err error) {
 	// 异常处理
 	if err = h.scannerHandle.Err(); err != nil {
 		log.Println("Reading file failed, err = ", err)
-	} else {
-		row = nil
-		err = errors.New("End of file")
+        return
 	}
+   
+    // end of file
+	row = nil
+	err = nil
 	return
 }
 

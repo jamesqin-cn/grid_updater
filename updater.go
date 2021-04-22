@@ -189,11 +189,20 @@ func (h *Updater) UpdateRecords() (err error) {
 	}
 
 	for {
-		row, _ := h.basefile.NextRow()
-		if row == nil {
+		row, scanerr := h.basefile.NextRow()
+
+        // skip error line
+		if scanerr != nil {
+            log.Println("scan row error, err = ", scanerr)
 			continue
 		}
 
+        // reach the last line
+		if row == nil {
+		    break	
+		}
+
+        // process this line
 		h.updateRecord(row)
         time.Sleep(time.Duration(h.interval) * time.Millisecond)
 	}
