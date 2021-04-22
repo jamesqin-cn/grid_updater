@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strings"
+	"time"
 
 	"git.oa.com/data_warehouse/util"
 )
@@ -12,9 +13,10 @@ type Updater struct {
 	basefile *util.BaseFile
 	mysql    *util.MySQL
 	charset  string
+    interval int
 }
 
-func NewUpdater(reader *util.BaseFile, writer *util.MySQL, charset string) (updater *Updater, err error) {
+func NewUpdater(reader *util.BaseFile, writer *util.MySQL, charset string, interval int) (updater *Updater, err error) {
 	if err = reader.Open(); err != nil {
 		return
 	}
@@ -26,6 +28,7 @@ func NewUpdater(reader *util.BaseFile, writer *util.MySQL, charset string) (upda
 		basefile: reader,
 		mysql:    writer,
 		charset:  charset,
+		interval: interval,
 	}, nil
 }
 
@@ -192,6 +195,7 @@ func (h *Updater) UpdateRecords() (err error) {
 		}
 
 		h.updateRecord(row)
+        time.Sleep(time.Duration(h.interval) * time.Millisecond)
 	}
 
 	return

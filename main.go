@@ -16,6 +16,8 @@ var (
 	mysqlPassword = flag.String("password", "123456", "mysql password")
 	charset       = flag.String("charset", "utf8mb4", "default charset")
 
+	interval = flag.Int("interval", 5, "interval with ms unit between two mysql command")
+
 	dataFile = flag.String("datafile", "", "data file which will be load to mysql")
 	fieldSep = flag.String("fieldsep", "\t", "field seperator chat of each records")
 
@@ -48,7 +50,7 @@ func main() {
 	}
 
 	mysql := util.NewMySQL(*mysqlUsername, *mysqlPassword, *mysqlHost, *mysqlPort, "", *debug)
-	updater, err := NewUpdater(basefile, mysql, *charset)
+	updater, err := NewUpdater(basefile, mysql, *charset, *interval)
 	if err != nil {
 		log.Fatalln("Init updater failed, err = ", err)
 		return
